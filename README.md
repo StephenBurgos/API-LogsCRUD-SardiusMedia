@@ -5,9 +5,12 @@
 # Logs API Endpoints
 ## The Logs API points that will let access and interactions to logs entity possible
 
-* `billingAddDuration` - :: edge function adds entry time to request
-* `billingCaptureData` - :: edge function that captures raw event data to S3
-* `billingExportData` - :: main lambda function that processes the raw data and stores it in both s3 and rds Aurora
+* `createUser` - :: Adds an array of users to the database.
+* `createDuplicateUser` - :: Adds an array of users to the database even if they already exist.
+* `readUserById` - :: Reads an entry from the database using a passed id.
+* `readAll` - :: Reads all users from the database.
+* `updateById` -:: Updates an entry from the database using a passed id.
+* `deleteUser` -:: Deletes a user from the database using a passed id.
 
 # Running It
 
@@ -23,8 +26,8 @@
 	- `.flowconfig` (file for babel configuration)
 	- `package.json` (modules declaration file for this serverless project)
 	- `config` (this directory contains all env and test config))
-	- `api` (this directory contains the project files)
-		- `_lib` (this directory contains db and s3 setup and functions)
+	- `api` (this directory contains the project files and functions)
+		- `_lib` (this directory contains db setup)
 		- `serverless.yml` (the main config file for the serverless project)
 			we declare endpoints here , in addition to AWS lambda property values. 
 
