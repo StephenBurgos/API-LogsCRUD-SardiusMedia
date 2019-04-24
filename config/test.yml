@@ -1,0 +1,11 @@
+# Environment Secrets Which Are Needed In The Code LOCAL ENVIRONMENT
+serverless_region: 'us-east-1'
+serverless_profile: 'dev'
+serverless_service_name: 'logs'
+account_id: '519197176941'
+rds_user: 'root'
+rds_password: ''
+rds_host: '127.0.0.1'
+rds_port: '3306'
+rds_db: 'logs'
+SSM_KEY: 'api/rds'

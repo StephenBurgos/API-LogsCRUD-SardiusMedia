@@ -1,0 +1,14 @@
+**/node_modules
+**/_optimize
+**/.serverless
+**/.build
+**/.webpack
+/lambda/npm-debug.log
+**/.DS_Store
+.DS_Store
+/npm-debug.log
+devops-codedeploy
+cf_version.yml
+cf_modified_stack.json
+build.txt
+**/consoleOutput

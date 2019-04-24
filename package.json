@@ -1,0 +1,76 @@
+{
+  "name": "logs",
+  "version": "1.0.0",
+  "description": "Logs API",
+  "main": "executor.js",
+  "scripts": {
+    "format": "prettier --config ./config/prettier/config.js --ignore-path ./config/prettier/ignore --write",
+    "start": "yarn run lambda-local",
+    "lambda-local": "SLS_DEBUG=* serverless offline --port 3000 --noAuth",
+    "lambda-deploy": "serverless deploy --verbose",
+    "lint": "eslint --fix",
+    "test": "jest --config ./config/jest/config.js --no-cache",
+    "test-staged": "jest --config ./config/jest/config.js --passWithNoTests --findRelatedTests"
+  },
+  "babel": {
+    "presets": [
+      "./config/babel/config.js"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "api/**/*.{js,jsx,json}": [
+      "yarn run test-staged",
+      "yarn run lint",
+      "yarn run format",
+      "git add"
+    ],
+    "*.{yml,yaml,css,less,scss}": [
+      "yarn run format",
+      "git add"
+    ]
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.1.5",
+    "@babel/core": "^7.1.6",
+    "@babel/plugin-transform-runtime": "^7.1.0",
+    "@babel/preset-env": "^7.1.6",
+    "@babel/preset-flow": "^7.0.0",
+    "@babel/runtime": "^7.1.5",
+    "eslint": "^5.9.0",
+    "eslint-config-prettier": "3.1.0",
+    "eslint-config-sardius": "^1.1.5",
+    "eslint-import-resolver-jest": "^2.1.1",
+    "eslint-import-resolver-webpack": "^0.10.1",
+    "eslint-plugin-flowtype": "^3.2.0",
+    "eslint-plugin-jest": "^22.0.0",
+    "flow-bin": "^0.90.0",
+    "husky": "^1.1.3",
+    "jest": "^23.6.0",
+    "jest-dom": "^2.1.1",
+    "js-yaml": "^3.7.0",
+    "json-loader": "^0.5.4",
+    "lint-staged": "^8.1.0",
+    "prettier": "1.15.1",
+    "serverless-offline": "3.31.0",
+    "serverless-plugin-optimize": "^4.0.2-rc.1",
+    "serverless-pseudo-parameters": "^2.4.0"
+  },
+  "dependencies": {
+    "aws-sdk": "^2.7.20",
+    "chalk": "2.4.2",
+    "moment": "^2.22.2",
+    "moment-timezone": "^0.5.9",
+    "mysql": "^2.16.0",
+    "sequelize": "^3.28.0",
+    "serverless-req-res": "^1.5.0"
+  },
+  "resolutions": {
+    "babel-core": "7.0.0-bridge.0"
+  }
+}

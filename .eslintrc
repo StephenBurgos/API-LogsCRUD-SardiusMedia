@@ -1,0 +1,22 @@
+{
+    "extends": [
+      "sardius/backend",
+      "eslint-config-prettier",
+      "plugin:flowtype/recommended",
+      "plugin:jest/recommended"
+    ],
+    "plugins": ["flowtype"],
+    "rules": {},
+    "overrides": [
+      {
+        "files": ["**/__tests__/**"],
+        "settings": {
+          "import/resolver": {
+            "jest": {
+              "jestConfigFile": "config/jest/config.js"
+              }
+            }
+        }
+      }
+    ]
+}
